@@ -1,0 +1,19 @@
+{
+  "intents": [
+    {
+      "intent": "TestIntent"
+    },
+    {
+      "intent": "AnswerIntent",
+      "slots": [
+        {
+          "name": "Answer",
+          "type": "LIST_OF_ANSWERS"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}

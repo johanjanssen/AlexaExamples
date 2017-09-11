@@ -1,0 +1,16 @@
+{
+  "intents": [
+    {
+      "intent": "MyFirstIntent"
+    },
+    {
+      "intent": "OtherNameIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}

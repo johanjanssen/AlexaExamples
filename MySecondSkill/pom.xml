@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>MySecondSkill</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.amazon.alexa</groupId>
+      <artifactId>alexa-skills-kit</artifactId>
+      <version>1.1.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-lambda-java-core</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>9.0.6.v20130930</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>9.0.6.v20130930</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.10</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.3.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.directory.studio</groupId>
+      <artifactId>org.apache.commons.io</artifactId>
+      <version>2.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-dynamodb</artifactId>
+      <version>1.9.40</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.github.seanroy</groupId>
+          <artifactId>lambda-maven-plugin</artifactId>
+          <version>2.1.4</version>
+          <configuration>
+            <version>${project.version}</version>
+            <functionCode>${project.build.directory}/${project.build.finalName}.jar</functionCode>
+            <forceUpdate>true</forceUpdate>
+            <lambdaFunctionsJSON>
+              [
+                {
+                  "functionName": "MySecondSkill",
+                  "description": "This is my second Alexa Skill",
+                  "handler": "com.example.MySecondSpeechletRequestStreamHandler",
+                  "timeout": 30,
+                  "memorySize": 128,
+                  "triggers": [
+                    { "integration": "Alexa Skills Kit" }
+                  ]
+                }
+              ]
+            </lambdaFunctionsJSON>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

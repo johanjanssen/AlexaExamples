@@ -1,0 +1,3 @@
+MyFirstIntent hello
+
+OtherNameIntent random number
